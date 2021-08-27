@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/openhoat/ts-koans-solutions.svg?token=Epg1qqwcpkp2akpnm3QK&branch=solutions)](https://app.travis-ci.com/openhoat/ts-koans-solutions)
+![Workflow Status](https://github.com/openhoat/ts-koans-solutions/actions/workflows/main.yml/badge.svg)
 
 # TypeScript Koans
 
