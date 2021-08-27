@@ -1,0 +1,9 @@
+{
+    "bracketSpacing": true,
+    "insertPragma": false,
+    "printWidth": 100,
+    "requirePragma": false,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "ts-koans",
+  "version": "1.0.0",
+  "description": "TypeScript koans to improve programmer skills",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "eslint src",
+    "prettier": "prettier -c 'src/**/*.js'",
+    "test": "jest -i",
+    "test:ci": "jest",
+    "test:watch": "jest -i --watchAll",
+    "validate": "npm run lint && npm test"
+  },
+  "author": "Olivier Penhoat <openhoat@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": "^14.17.0",
+    "npm": ">=7.19.0"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "nanoid": "3.1.25"
+  },
+  "devDependencies": {
+    "@jest/test-sequencer": "27.0.6",
+    "@types/jest": "27.0.1",
+    "@types/jest-when": "2.7.2",
+    "@types/lodash": "4.14.170",
+    "@types/node": "15.0.2",
+    "@types/shelljs": "0.8.8",
+    "@typescript-eslint/eslint-plugin": "4.23.0",
+    "@typescript-eslint/parser": "4.23.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "got": "11.8.2",
+    "jest": "27.0.6",
+    "jest-runner-groups": "2.1.0",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "ts-jest": "27.0.5",
+    "ts-node": "10.0.0",
+    "typescript": "4.2.4"
+  }
+}
