@@ -7,10 +7,10 @@
     "clean": "rimraf dist",
     "lint": "eslint src",
     "prettier": "prettier -c 'src/**/*.js'",
-    "test": "jest -i",
-    "test:ci": "jest",
+    "test": "jest -i --reporters='default'",
     "test:watch": "jest -i --watchAll",
-    "validate": "npm run lint && npm test"
+    "play": "jest -i",
+    "validate": "npm run build && npm run lint && npm run test"
   },
   "author": "Olivier Penhoat <openhoat@gmail.com>",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "nanoid": "3.1.25"
   },
   "devDependencies": {
+    "@jest/reporters": "27.1.0",
     "@jest/test-sequencer": "27.0.6",
     "@types/jest": "27.0.1",
     "@types/jest-when": "2.7.2",
@@ -31,13 +32,15 @@
     "@types/shelljs": "0.8.8",
     "@typescript-eslint/eslint-plugin": "4.23.0",
     "@typescript-eslint/parser": "4.23.0",
+    "chalk": "4.1.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "got": "11.8.2",
     "jest": "27.0.6",
-    "jest-runner-groups": "2.1.0",
+    "jest-docblock": "27.0.6",
+    "jest-runner": "27.1.0",
     "prettier": "2.3.2",
     "rimraf": "3.0.2",
     "ts-jest": "27.0.5",

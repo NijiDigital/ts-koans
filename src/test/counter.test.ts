@@ -3,8 +3,8 @@ import { basename } from 'path'
 import { CounterFactory } from '../main/types/counter'
 
 /**
- * @group sync
- * @group supereasy
+ * @difficultyLevel 1
+ * @tags sync
  */
 
 const modName = basename(__filename, '.test.ts')

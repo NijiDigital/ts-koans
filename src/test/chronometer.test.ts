@@ -3,8 +3,8 @@ import { basename } from 'path'
 import { Chronometerable } from '../main/types/chronometer'
 
 /**
- * @group sync
- * @group easy
+ * @difficultyLevel 2
+ * @tags sync
  */
 
 const modName = basename(__filename, '.test.ts')

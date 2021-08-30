@@ -3,8 +3,8 @@ import { basename } from 'path'
 import { DoAsync } from '../main/types/async-await'
 
 /**
- * @group async
- * @group easy
+ * @difficultyLevel 2
+ * @tags async
  */
 
 const modName = basename(__filename, '.test.ts')

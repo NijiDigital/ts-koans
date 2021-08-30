@@ -3,8 +3,8 @@ import { basename } from 'path'
 import { BuildLetters } from '../main/types/alphabet'
 
 /**
- * @group sync
- * @group easy
+ * @difficultyLevel 2
+ * @tags sync
  */
 
 const modName = basename(__filename, '.test.ts')
