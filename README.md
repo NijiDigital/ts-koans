@@ -1,4 +1,4 @@
-![Workflow Status](https://github.com/openhoat/ts-koans-solutions/actions/workflows/main.yml/badge.svg)
+[![Workflow Status](https://github.com/openhoat/ts-koans-solutions/actions/workflows/main.yml/badge.svg)](./actions)
 
 # TypeScript Koans
 
