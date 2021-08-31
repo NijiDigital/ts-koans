@@ -1,8 +1,8 @@
 const JestRunner = require('jest-runner').default
-const { parseDecorators } = require('./koans-utils')
+const { parseDecorators, testSrcFileExtension } = require('./koans-utils')
 const { resolve, join, relative, dirname, basename } = require('path')
 
-const difficultyLevelArgPrefix = '--difficultyLevel'
+const levelArgPrefix = '--level'
 const tagsArgPrefix = '--tags'
 
 const baseDir = resolve(__dirname, '..', '..')
@@ -12,20 +12,18 @@ class KoansRunner extends JestRunner {
   static filterTestsGivenCliArgs(tests) {
     const include = {}
     process.argv.forEach((arg) => {
-      if (arg.startsWith(difficultyLevelArgPrefix)) {
-        include.difficultyLevels = include.difficultyLevels || []
-        include.difficultyLevels.push(Number(arg.substring(difficultyLevelArgPrefix.length + 1)))
+      if (arg.startsWith(levelArgPrefix)) {
+        include.levels = include.levels || []
+        include.levels.push(Number(arg.substring(levelArgPrefix.length + 1)))
       }
       if (arg.startsWith(tagsArgPrefix)) {
         include.tags = arg.substring(tagsArgPrefix.length + 1).split(/\s/)
       }
     })
     return tests.filter((test) => {
-      const { difficultyLevel, tags } = test.koans
-      let result = !include.difficultyLevels && !include.tags
-      result =
-        result ||
-        (include.difficultyLevels?.length && include.difficultyLevels.includes(difficultyLevel))
+      const { level, tags } = test.koans
+      let result = !include.levels && !include.tags
+      result = result || (include.levels?.length && include.levels.includes(level))
       if (include.tags?.length) {
         tags.forEach((tag) => {
           result = result || include.tags.includes(tag)
@@ -39,7 +37,7 @@ class KoansRunner extends JestRunner {
     const maxLengthTestName = tests.reduce((max, test) => {
       const testRelativePath = join(
         relative(testSrcDir, dirname(test.path)),
-        basename(test.path, '.test.ts'),
+        basename(test.path, testSrcFileExtension),
       )
       return Math.max(max, testRelativePath.length)
     }, 0)

@@ -3,7 +3,7 @@ import { basename } from 'path'
 import { DoAsync } from '../main/types/async-await'
 
 /**
- * @difficultyLevel 2
+ * @level 2
  * @tags async
  */
 

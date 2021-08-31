@@ -23,28 +23,28 @@
     "nanoid": "3.1.25"
   },
   "devDependencies": {
-    "@jest/reporters": "27.1.0",
+    "@jest/reporters": "27.0.6",
     "@jest/test-sequencer": "27.0.6",
     "@types/jest": "27.0.1",
-    "@types/jest-when": "2.7.2",
-    "@types/lodash": "4.14.170",
-    "@types/node": "15.0.2",
-    "@types/shelljs": "0.8.8",
-    "@typescript-eslint/eslint-plugin": "4.23.0",
+    "@types/jest-when": "2.7.3",
+    "@types/lodash": "4.14.172",
+    "@types/node": "16.7.8",
+    "@types/shelljs": "0.8.9",
+    "@typescript-eslint/eslint-plugin": "4.30.0",
     "@typescript-eslint/parser": "4.23.0",
     "chalk": "4.1.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "got": "11.8.2",
     "jest": "27.0.6",
     "jest-docblock": "27.0.6",
-    "jest-runner": "27.1.0",
+    "jest-runner": "27.0.6",
     "prettier": "2.3.2",
     "rimraf": "3.0.2",
     "ts-jest": "27.0.5",
-    "ts-node": "10.0.0",
-    "typescript": "4.2.4"
+    "ts-node": "10.2.1",
+    "typescript": "4.4.2"
   }
 }

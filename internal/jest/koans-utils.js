@@ -3,13 +3,14 @@ const { readFileSync } = require('fs')
 
 const koansUtils = {
   parseDecorators: (testSourceFile) => {
-    const { coefficient, difficultyLevel, tags } = parse(readFileSync(testSourceFile, 'utf8')) || {}
+    const { factor, level, tags } = parse(readFileSync(testSourceFile, 'utf8')) || {}
     return {
-      coefficient: koansUtils.toNumber(coefficient, 1),
-      difficultyLevel: koansUtils.toNumber(difficultyLevel),
+      factor: koansUtils.toNumber(factor, 1),
+      level: koansUtils.toNumber(level),
       tags: (tags || '').split(/\s/),
     }
   },
+  testSrcFileExtension: '.test.ts',
   toNumber: (value, defaultValue = undefined) =>
     typeof value !== 'string' || Number.isNaN(value) ? defaultValue : Number(value),
 }

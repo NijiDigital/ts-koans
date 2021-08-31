@@ -3,7 +3,7 @@ import { basename } from 'path'
 import { IsAnagram } from '../main/types/anagram'
 
 /**
- * @difficultyLevel 2
+ * @level 2
  * @tags sync
  */
 

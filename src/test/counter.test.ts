@@ -3,7 +3,7 @@ import { basename } from 'path'
 import { CounterFactory } from '../main/types/counter'
 
 /**
- * @difficultyLevel 1
+ * @level 1
  * @tags sync
  */
 

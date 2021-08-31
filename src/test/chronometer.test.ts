@@ -3,7 +3,7 @@ import { basename } from 'path'
 import { Chronometerable } from '../main/types/chronometer'
 
 /**
- * @difficultyLevel 2
+ * @level 2
  * @tags sync
  */
 

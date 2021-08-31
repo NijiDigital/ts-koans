@@ -6,7 +6,7 @@ class CustomSequencer extends Sequencer {
     return [...tests]
       .sort((item1, item2) => item1.path.localeCompare(item2.path))
       .sort((...items) => {
-        const [level1, level2] = items.map((item) => parseDecorators(item.path).difficultyLevel)
+        const [level1, level2] = items.map((item) => parseDecorators(item.path).level)
         return level1 === undefined ? 1 : level2 === undefined ? -1 : level1 - level2
       })
   }

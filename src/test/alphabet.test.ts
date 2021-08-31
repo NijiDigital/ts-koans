@@ -3,7 +3,7 @@ import { basename } from 'path'
 import { BuildLetters } from '../main/types/alphabet'
 
 /**
- * @difficultyLevel 2
+ * @level 2
  * @tags sync
  */
 

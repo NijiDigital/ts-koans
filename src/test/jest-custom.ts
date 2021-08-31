@@ -20,7 +20,8 @@ const expectExtension: ExpectExtensionable = {
   async toBeRejectedWith(promise: Promise<unknown>, opt?) {
     try {
       await promise
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       handleError(err, opt)
       return { message: () => 'promise is rejected with expected error', pass: true }
     }
@@ -29,7 +30,8 @@ const expectExtension: ExpectExtensionable = {
   toHaveFailedWith(fn: () => void, opt?) {
     try {
       fn()
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       handleError(err, opt)
       return { message: () => 'function thrown expected error', pass: true }
     }
