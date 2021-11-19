@@ -8,6 +8,6 @@ It mainly contains some tests that describe some problems to solve and make asse
 
 The way it works is very simple, all you have to do is to solve the failing tests.
 
-It works the same way as [js-koans](https://github.com/openhoat/js-koans)
+It works the same way as [js-koans](https://github.com/NijiDigital/js-koans)
 
 Enjoy!
