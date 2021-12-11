@@ -17,22 +17,62 @@ const handleError = (err: Error, opt?: ErrorMatcherOptions) => {
 }
 
 const expectExtension: ExpectExtensionable = {
-  async toBeRejectedWith(promise: Promise<unknown>, opt?) {
+  toBeRejectedWith: async (promise: Promise<unknown>, opt?) => {
     try {
       await promise
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      handleError(err, opt)
+    } catch (err) {
+      handleError(err as Error, opt)
       return { message: () => 'promise is rejected with expected error', pass: true }
     }
     return { message: () => 'promise is not rejected', pass: false }
   },
-  toHaveFailedWith(fn: () => void, opt?) {
+  toFulfillAfter: async (
+    promiseFactory: () => Promise<unknown>,
+    durationMs: number,
+    resultExpectations?: (promise: Promise<unknown>) => Promise<void>,
+  ) => {
+    jest.useFakeTimers('legacy')
+    const waitNextTick = async () =>
+      new Promise((resolve) => {
+        process.nextTick(() => {
+          resolve(undefined)
+        })
+      })
+    try {
+      const next = jest.fn()
+      const promise = promiseFactory()
+      promise.then(next).catch(next)
+      let elapsedMs = 0
+      const tickMs = 10
+      do {
+        if (next.mock.calls.length > 0) {
+          return { message: () => 'function called too soon', pass: false }
+        }
+        jest.advanceTimersByTime(tickMs)
+        await waitNextTick()
+        elapsedMs += tickMs
+      } while (elapsedMs < durationMs)
+      jest.advanceTimersByTime(tickMs)
+      await waitNextTick()
+      if (next.mock.calls.length < 1) {
+        return { message: () => 'promise fulfilled too late', pass: false }
+      }
+      if (resultExpectations) {
+        await resultExpectations(promise)
+      }
+      return {
+        message: () => `promise is successfully fulfilled after ${durationMs}ms`,
+        pass: true,
+      }
+    } finally {
+      jest.useRealTimers()
+    }
+  },
+  toHaveFailedWith: (fn, opt) => {
     try {
       fn()
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      handleError(err, opt)
+    } catch (err) {
+      handleError(err as Error, opt)
       return { message: () => 'function thrown expected error', pass: true }
     }
     return { message: () => 'function did not throw any error', pass: false }
